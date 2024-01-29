@@ -1,0 +1,47 @@
+/* public/css/dashboard.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://scontent.flis7-1.fna.fbcdn.net/v/t1.6435-9/119277084_3507367375975628_2590771420863753355_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=300f58&_nc_ohc=Fy-W9amgH10AX--Um4g&_nc_ht=scontent.flis7-1.fna&oh=00_AfB5yePC-fJ29FKIpd5RIG7z3VpFmBtkrKcqXiSXsBguUQ&oe=65D89CB2');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: #fff;
+    margin-top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    max-width: 800px;
+    margin: 120px auto 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: #001530;
+}
+
+.dashboard-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.dashboard-button {
+    background-color: #00205b;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-button:hover {
+    background-color: #c8102e;
+}
+
+/* Adicione mais estilos conforme necessário */
