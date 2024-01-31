@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -22,7 +23,7 @@ use App\Http\Controllers\ConvocacaoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -30,8 +31,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
@@ -46,14 +47,17 @@ Route::get('/treinador/dashboard/{escalao}', [TreinadorDashboardController::clas
     ->middleware('auth') // Apenas treinadores autenticados podem acessar
     ->name('treinador.dashboard');
 
-Route::post('/logout', [WelcomeController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+// Remova esta rota redundante, pois você já tem a rota acima para o logout
+// Route::post('/logout', [WelcomeController::class, 'logout'])->name('logout');
 
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 
-Route::get('/convocatoria', [DashboardController::class, 'convocatoria'])->name('convocatoria');
+Route::get('/convocatoria', [ConvocatoriaController::class, 'index'])->name('convocatoria');
+Route::get('/dashboard/convocatoria', [DashboardController::class, 'convocatoria'])->name('dashboard.convocatoria');
+
 Route::get('/menujogo', [DashboardController::class, 'menujogo'])->name('menujogo');
 
 Route::get('/convocacao', 'ConvocatoriaController@index')->name('convocacao');
 
-require __DIR__.'/auth.php';    
-
+require __DIR__.'/auth.php';

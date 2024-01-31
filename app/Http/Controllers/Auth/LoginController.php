@@ -27,8 +27,8 @@ class LoginController extends Controller
         return redirect('/dashboardPadrao');
     }
 
-    protected function loggedOut(Request $request)
+    public function __construct()
     {
-        return redirect()->route('welcome');
+        $this->middleware('guest')->except('logout');
     }
 }

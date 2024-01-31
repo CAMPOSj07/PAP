@@ -73,7 +73,7 @@
         .user-name {
             font-size: 20px;
             font-weight: bold;
-            color: #333;
+            color: #fff;
         }
 
         .user-actions {
@@ -139,14 +139,19 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Gvfc2021.webp" alt="Club Logo">
         <h1>Gil Vicente FC </h1>
         <div class="user-options">
+        @auth
             <span class="user-name">{{ Auth::user()->name }}</span>
             <div class="user-actions">
-                <button class="edit-profile">Edit Profile</button>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout
+                <a href="{{ route('profile.edit') }}">
+                    <button class="edit-profile">Editar Conta</button>
                 </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
             </div>
-        </div>
+        @endauth
+    </div>
     </header>
 
     <div class="content">

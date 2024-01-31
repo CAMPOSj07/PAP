@@ -1,6 +1,6 @@
 <?php
 
-// app/Http/Controllers/ConvocatoriaController.php
+// ConvocatoriaController.php
 
 namespace App\Http\Controllers;
 
@@ -15,3 +15,4 @@ class ConvocatoriaController extends Controller
         return view('convocatoria', compact('jogadores'));
     }
 }
+
